@@ -1,0 +1,40 @@
+ALGORITHM sum_sets
+VAR
+    set1 : ARRAY_OF INTEGER[4];
+    set2 : ARRAY_OF INTEGER[4];
+    // distinct  : ARRAY_OF INTEGER[];
+    sum :INTEGER :=0;
+    i,j,elt: INTEGER;
+
+BEGIN
+set1 := {4,5,7,13};
+set2 := {10,5,9,13};
+ FOR i FROM 0 TO 3 STEP DO
+      elt := set1[i];
+        FOR j FROM 0 TO 3 STEP DO
+        IF(elt == set2[j]){
+            sum += set2[j];
+        }
+        //  ELSE{
+        //      distinct := elt;
+        //  }
+         END_IF
+
+        END_FOR
+    END_FOR
+   FOR j FROM 0 TO 3 STEP DO
+    elt := set2[j];
+        FOR i FROM 0 TO 3 STEP DO
+        IF(elt == set1[i]){
+            sum += set1[i];
+        }
+        //  ELSE{
+        //      distinct := elt;
+        //  }
+         END_IF
+
+        END_FOR
+    END_FOR
+    write("sum is :", sum );
+
+END

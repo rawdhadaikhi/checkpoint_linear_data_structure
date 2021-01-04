@@ -1,0 +1,39 @@
+ALGORITHM sum_same_value
+VAR
+      set1 : ARRAY_OF INTEGER[4];
+    set2 : ARRAY_OF INTEGER[4];
+     sum :INTEGER :=0;
+    i,j,elt: INTEGER;
+
+BEGIN
+set1:= {12, 13, 6, 10};
+set2:= {13, 10, 16, 15};
+ 
+ FOR i FROM 0 TO 3 STEP DO
+      elt := set1[i];
+        FOR j FROM 0 TO 3 STEP DO
+        IF(elt <> set2[j]){
+        j++;
+        }
+         ELSE{
+             
+            sum += set2[j];
+         }
+         END_IF
+        END_FOR
+    END_FOR
+   FOR j FROM 0 TO 3 STEP DO
+    elt := set2[j];
+        FOR i FROM 0 TO 3 STEP DO
+        IF(elt <> set1[i]){
+            i++;
+        }
+         ELSE{
+             
+            sum += set1[i];
+         }
+         END_IF
+        END_FOR
+    END_FOR
+    write("sum is :", sum );
+END
